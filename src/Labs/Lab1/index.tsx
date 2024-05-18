@@ -281,10 +281,8 @@ Please
 <a id="wd-lipsum" href="https://www.lipsum.com"> click here </a>
 to get dummy text<br/>
 Please
-<a href="https://github.com/Samarthvg/CS5610"> click here </a>
+<a href="https://github.com/Samarthvg/kanbas-react-web-app"> click here </a>
 to access my github repo<br/>
-
-    {/* copy rest of form elements here  */}
   </form>
 </div>
 
