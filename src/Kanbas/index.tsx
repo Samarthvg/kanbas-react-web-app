@@ -11,10 +11,10 @@ function Kanbas(){
                 <td valign="top">
                     <Routes>
                         <Route path="/" element={<Navigate to= "Dashboard"/>}/>
-
                         <Route path="Account" element={<Navigate to= "Dashboard"/>}/>
                         <Route path="Dashboard" element={<Dashboard/>}/>
                         <Route path="Courses/:id/*" element={<Courses />}/>
+                        <Route path="Courses/" element={<h3>Work in progress, try adding an id in url after "Kanbas/Courses/"</h3>}/>
                         <Route path="Calendar" element={<h1>Calendar</h1>}/>
                         <Route path="Inbox" element={<h1>Inbox</h1>}/>
                     </Routes>
