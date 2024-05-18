@@ -79,11 +79,11 @@ export default function AssignmentEditor() {
                     <td align="right" valign="top">
                         <label htmlFor="wd-assign">Assign</label>
                     </td>
-                    <td valign="top">
+                    <td valign="top" id="wd-assign">
                         <label htmlFor="wd-assign-to">Assign to</label> <br />
                         <input type="text" id="wd-assign-to" defaultValue={"Everyone"} />
                         <p></p>
-                        <label htmlFor="wd-due">Due</label> <br />
+                        <label htmlFor="wd-due-date">Due</label> <br />
                         <input type="date" id="wd-due-date" defaultValue={"05/13/2024"} />
                         <p></p>
                         <td>
