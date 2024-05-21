@@ -13,4 +13,4 @@ function CoursesNavigation() {
         <li><a id="wd-course-grades-link"  href="#/Kanbas/Courses/1234/Grades">Grades</a></li>
       </ul>
   );}
-  export default CoursesNavigation;
+  export default CoursesNavigation; 
