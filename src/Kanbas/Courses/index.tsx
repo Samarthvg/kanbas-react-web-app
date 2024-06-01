@@ -1,7 +1,7 @@
 import CoursesNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
-import { Navigate, Route, Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
@@ -17,7 +17,7 @@ export default function Courses() {
       <CoursesNavigation />
     </div>
     <div className="flex-fill">
-   
+  
       <Routes>
         <Route path="Home" element={<Home />} />
         <Route path="Modules" element={<Modules />} />
