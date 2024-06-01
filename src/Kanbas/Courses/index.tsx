@@ -4,10 +4,11 @@ import Home from "./Home";
 import { Navigate, Route, Routes } from "react-router";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
+import { FaAlignJustify } from "react-icons/fa";
 export default function Courses() {
   return (
     <div id="wd-courses">
-  <h2 className="text-danger me-4 fs-4 mb-1 fa-align-justify"> 
+    <h2 className="text-danger"><FaAlignJustify className="me-4 fs-4 mb-1" /> 
       Course 1234</h2>
   <hr />
   
