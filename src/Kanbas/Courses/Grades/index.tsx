@@ -36,51 +36,51 @@ export default function Grades() {
                 <table className="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <td className="align-middle">Student name</td>
-                            <td>A1 Setup <br /> <span className="fs-6">Out of 100</span></td>
-                            <td>A2 HTML <br /> <span className="">Out of 100</span></td>
-                            <td>A3 CSS <br /> <span className="">Out of 100</span></td>
-                            <td>A4 BOOTSTRAP <br /> <span className="">Out of 100</span></td>
+                            <th className="align-middle">Student name</th>
+                            <td className="text-center">A1 Setup <br /> <span>Out of 100</span></td>
+                            <td className="text-center">A2 HTML <br /> <span>Out of 100</span></td>
+                            <td className="text-center">A3 CSS <br /> <span>Out of 100</span></td>
+                            <td className="text-center">A4 BOOTSTRAP <br /> <span>Out of 100</span></td>
                         </tr>
                         </thead>
-                    <tbody>
+                    <tbody className="text-center">
                         <tr>
-                        <td className="text-danger">Jane Adams</td>
+                        <td className="text-danger text-start">Jane Adams</td>
                         <td>100%</td>
                         <td>96.67%</td>
                         <td>92.18%</td>
                         <td>66.22%</td>
                         </tr>
                         <tr>
-                        <td className="text-danger">Christina Adams</td>
+                        <td className="text-danger text-start">Christina Adams</td>
                         <td>100%</td>
                         <td>100%</td>
                         <td>100%</td>
                         <td>100%</td>
                         </tr>
                         <tr>
-                        <td className="text-danger">Samreen Ansari</td>
+                        <td className="text-danger text-start">Samreen Ansari</td>
                         <td>100%</td>
                         <td>100%</td>
                         <td>100%</td>
                         <td>100%</td>
                         </tr>
                         <tr>
-                        <td className="text-danger">Han Bao</td>
+                        <td className="text-danger text-start">Han Bao</td>
                         <td>100%</td>
                         <td>100%</td>
-                        <td><input type="number" className="form-control input-sm p-1" placeholder="83%" style={{maxWidth:"150px"}}/></td>
+                        <td><input type="number" className="form-control input-sm p-1 mx-auto text-center" placeholder="83%" min={0} max={100} style={{maxWidth:"150px"}}/></td>
                         <td>98.99%</td>
                         </tr>
                         <tr>
-                        <td className="text-danger">Mahi Sai Srinivas Bobbili</td>
+                        <td className="text-danger text-start">Mahi Sai Srinivas Bobbili</td>
                         <td>100%</td>
                         <td>96.67%</td>
                         <td>98.37%</td>
                         <td>100%</td>
                         </tr>
                         <tr>
-                        <td className="text-danger">Siren Cao</td>
+                        <td className="text-danger text-start">Siren Cao</td>
                         <td>100%</td>
                         <td>100%</td>
                         <td>100%</td>
