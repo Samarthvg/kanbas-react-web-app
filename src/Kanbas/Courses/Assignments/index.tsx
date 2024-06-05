@@ -5,10 +5,10 @@ import AssignmentButton from "./AssignmentButton";
 import { BsPlusLg } from "react-icons/bs";
 export default function Assignments() {
     return (
-      <div id="wd-assignments">
+      <div id="wd-assignments"> 
         <div className="assignment-form align-items-center mt-3">
-            <input id="wd-search-assignment" className="d-inline p-2 form-control" placeholder="Search..." style={{width:"400px"}} />
-            <div className="wd-assignment-btn float-end">
+            <input id="wd-search-assignment" className="d-inline p-2 form-control" placeholder="Search..." style={{maxWidth:"600px"}} />
+            <div className="wd-assignment-btn float-end d-none d-xl-block">
               <button className="wd-add-assignment-group btn btn-lg btn-secondary me-1 rounded-2"><BsPlusLg/> Group</button>
               <button className="wd-add-assignment btn btn-lg btn-danger text-white rounded-2 "><BsPlusLg/> Assignment</button>
             </div>

@@ -55,36 +55,36 @@ export default function Grades() {
                         <td className="text-danger">Christina Adams</td>
                         <td>100%</td>
                         <td>100%</td>
-                        <td>92.18%</td>
-                        <td>66.22%</td>
+                        <td>100%</td>
+                        <td>100%</td>
                         </tr>
                         <tr>
                         <td className="text-danger">Samreen Ansari</td>
                         <td>100%</td>
                         <td>100%</td>
-                        <td>92.18%</td>
-                        <td>66.22%</td>
+                        <td>100%</td>
+                        <td>100%</td>
                         </tr>
                         <tr>
                         <td className="text-danger">Han Bao</td>
                         <td>100%</td>
                         <td>100%</td>
-                        <td><input type="text" className="form-control input-sm" defaultValue={"83%"} /></td>
-                        <td>66.22%</td>
+                        <td><input type="number" className="form-control input-sm p-1" placeholder="83%" style={{maxWidth:"150px"}}/></td>
+                        <td>98.99%</td>
                         </tr>
                         <tr>
                         <td className="text-danger">Mahi Sai Srinivas Bobbili</td>
                         <td>100%</td>
                         <td>96.67%</td>
-                        <td>92.18%</td>
-                        <td>66.22%</td>
+                        <td>98.37%</td>
+                        <td>100%</td>
                         </tr>
                         <tr>
                         <td className="text-danger">Siren Cao</td>
                         <td>100%</td>
                         <td>100%</td>
-                        <td>92.18%</td>
-                        <td>66.22%</td>
+                        <td>100%</td>
+                        <td>100%</td>
                         </tr>
                     </tbody>
                 </table>
