@@ -31,7 +31,7 @@ export default function Grades() {
                 
                
             </div>
-            <button className="btn btn-lg btn-secondary mb-3"> <CiFilter/>Apply filter</button>
+            <button className="btn btn-lg btn-secondary mb-3"> <CiFilter className="me-2 fs-5"/>Apply filter</button>
             <div className="table-responsive">
                 <table className="table table-striped table-bordered">
                     <thead>

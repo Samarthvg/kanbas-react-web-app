@@ -4,7 +4,7 @@ import { FaBan } from "react-icons/fa6";
 export default function ModulesControls() {
     return (
         <div id="wd-modules-controls" className="text-nowrap">
-            <button id="wd-add-module-btn" className="btn btn-lg btn-danger me-1 float-end c">
+            <button id="wd-add-module-btn" className="btn btn-lg btn-danger me-1 float-end c d-none d-lg-block">
                 <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
                 Module
             </button>
@@ -45,7 +45,7 @@ export default function ModulesControls() {
 
                 </ul>
             </div>
-            <button className="btn btn-lg btn-secondary float-end me-1">View Progress</button>
+            <button className="btn btn-lg btn-secondary float-end me-1 d-none d-xl-block">View Progress</button>
             <button className="btn btn-lg btn-secondary float-end me-1">Collapse All</button>
         </div>
     );
