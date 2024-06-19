@@ -1,11 +1,23 @@
+import * as db from "../../Database";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+
 export default function AssignmentEditor() {
+    const { aid } = useParams();
+    const {cid } = useParams();
+    const assignments = db.assignments;
+  console.log(aid)
     return (
         <div id="wd-assignments-editor">
+                        {assignments.filter((assignment) => assignment._id === aid).map((assignment) => (
+                  
             <form action="#" className="assignment-editor" style={{maxWidth:"600px"}}>
+          
                 <label htmlFor="wd-name" className="mb-2">Assignment Name</label><br />
-                <input id="wd-name" className="form-control" value="A1 - ENV + HTML" /> <br />
+      
+                <input id="wd-name" className="form-control" value={assignment.title} /> <br />
                 <textarea id="wd-description" className="form-control">
-                    The assignment is available online Submit a link to the landing page of
+                    {assignment.description}
                 </textarea>
                 <p></p>
                 <table>
@@ -14,7 +26,7 @@ export default function AssignmentEditor() {
                             <label htmlFor="wd-points" className="me-2">Points</label>
                         </td>
                         <td>
-                            <input id="wd-points" className="form-control" value={100} />
+                            <input id="wd-points" className="form-control" value={assignment.points} />
                         </td>
                     </tr>
                     <p></p>
@@ -91,14 +103,14 @@ export default function AssignmentEditor() {
                             <input type="text" id="wd-assign-to" defaultValue={"Everyone"}  className="form-control"/>
                             <p></p>
                             <label htmlFor="wd-due-date" className="mb-2">Due</label> <br />
-                            <input type="date" id="wd-due-date" defaultValue={"05/13/2024"} />
+                            <input type="date" id="wd-due-date" defaultValue={assignment.due_date} />
                             <p></p>
                             <td>
                                 <label htmlFor="wd-available-from" className="mb-2">Available from</label><br />
-                                <input className="me-2" type="date" id="wd-available-from" defaultValue={"05/06/2024"} />
+                                <input className="me-2" type="date" id="wd-available-from" defaultValue={assignment.available_date} />
                             </td>
                             <td> <label htmlFor="wd-available-until" className="mb-2">Until</label><br />
-                                <input type="date" id="wd-available-until" defaultValue={"05/20/2024"} /></td>
+                                <input type="date" id="wd-available-until" defaultValue={assignment.due_date} /></td>
                         </td>
                     </tr>
                     <tr>
@@ -106,16 +118,18 @@ export default function AssignmentEditor() {
                     </tr>
                     <tr>
                         <td colSpan={2} align="right">
-                            <td><button className="btn btn-secondary me-2" id="wd-cancel" onClick={() => alert("Are you sure?")} type="button">
+                            <td><Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-2" id="wd-cancel" onClick={() => alert("Are you sure?")} type="button">
                                 Cancel
-                            </button> </td>
-                            <td><button className="btn btn-success" id="wd-save" onClick={() => alert("Saved!")} type="button">
+                            </Link> </td>
+                            <td><Link  to={`../Assignments`} className="btn btn-success" id="wd-save" onClick={() => alert("Saved!")} type="button">
                                 Save
-                            </button></td>
+                            </Link></td>
                         </td>
                     </tr>
                 </table>
+    
             </form>
+        ))}
         </div>
     );
 }
