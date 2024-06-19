@@ -103,14 +103,14 @@ export default function AssignmentEditor() {
                             <input type="text" id="wd-assign-to" defaultValue={"Everyone"}  className="form-control"/>
                             <p></p>
                             <label htmlFor="wd-due-date" className="mb-2">Due</label> <br />
-                            <input type="date" id="wd-due-date" defaultValue={assignment.due_date} />
+                            <input type="date" className="form-control" id="wd-due-date" defaultValue={assignment.due_date} />
                             <p></p>
                             <td>
                                 <label htmlFor="wd-available-from" className="mb-2">Available from</label><br />
-                                <input className="me-2" type="date" id="wd-available-from" defaultValue={assignment.available_date} />
+                                <input className="me-2 form-control" type="date" id="wd-available-from" defaultValue={assignment.available_date} />
                             </td>
                             <td> <label htmlFor="wd-available-until" className="mb-2">Until</label><br />
-                                <input type="date" id="wd-available-until" defaultValue={assignment.due_date} /></td>
+                                <input type="date" className="me-2 form-control" id="wd-available-until" defaultValue={assignment.due_date} /></td>
                         </td>
                     </tr>
                     <tr>
