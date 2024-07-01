@@ -1,4 +1,4 @@
-import React from "react";
+
 import { BsGripVertical, BsPlusLg } from "react-icons/bs";
 import { TfiWrite } from "react-icons/tfi";
 import { useParams } from "react-router";
