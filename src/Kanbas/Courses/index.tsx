@@ -31,6 +31,8 @@ const { cid } = useParams();
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:aid" element={<AssignmentEditor />} />
+            <Route path="New" element={<AssignmentEditor />} />
+            
             <Route path="Grades" element={<Grades />} />
           </Routes>
         </div>

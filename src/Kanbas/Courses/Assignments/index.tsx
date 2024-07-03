@@ -1,14 +1,14 @@
-
 import { BsGripVertical, BsPlusLg } from "react-icons/bs";
 import { TfiWrite } from "react-icons/tfi";
 import { useParams } from "react-router";
-import * as db from "../../Database";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import AssignmentButton from "./AssignmentButton";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
+  const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
 
   return (
     <div id="wd-assignments">
@@ -23,9 +23,9 @@ export default function Assignments() {
           <button className="wd-add-assignment-group btn btn-lg btn-secondary me-1 rounded-2">
             <BsPlusLg /> Group
           </button>
-          <button className="wd-add-assignment btn btn-lg btn-danger text-white rounded-2">
+          <Link to={`/Kanbas/Courses/${cid}/New`} className="wd-add-assignment btn btn-lg btn-danger text-white rounded-2">
             <BsPlusLg /> Assignment
-          </button>
+          </Link>
         </div>
       </div>
       <br /><br /><br />
@@ -43,19 +43,19 @@ export default function Assignments() {
         </div>
         <ul className="wd-assignment-list list-group list-unstyled rounded-0 border-5 border-start border-success">
           {assignments
-            .filter((assignment) => assignment.course === cid)
-            .map((assignment) => (
+            .filter((assignment: any) => assignment.course === cid)
+            .map((assignment : any) => (
               <li key={assignment._id} className="wd-assignment-list-item list-group-item p-3 ps-2">
                 <BsGripVertical />
                 <span className="float-left text-success me-2">
                   <TfiWrite />
                 </span>
-                <a 
+                <Link
                   className="wd-assignment-link text-black text-decoration-none ps-1"
-                  href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                  to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
                 >
                   {assignment.title}
-                </a>
+                </Link>
                 <AssignmentControlButtons />
                 <div className="wd-assignment-details ms-5">
                   <span className="wd-module-type text-danger">Multiple Modules</span> |
@@ -63,9 +63,9 @@ export default function Assignments() {
                     <b> Not available until</b> {assignment.available_month} at {assignment.available_time}
                   </span> |
                   <span className="wd-end-date">
-                    <b> Due</b> May 13 at 11:59pm
+                    <b> Due</b> {assignment.dueDate} at {assignment.dueTime}
                   </span> |
-                  <span className="wd-points">100 pts</span>
+                  <span className="wd-points">{assignment.points} pts</span>
                 </div>
               </li>
             ))}

@@ -25,7 +25,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2> <hr />
 
       <div id="wd-dashboard-courses" className="row">
-        <div className="row row-cols-1 row-cols-md-5 g-4">
+        <div className="row row-cols-1 row-cols-md-5 g- overflow-scroll" style={{maxHeight:"60vh"}}>
 
           {courses.map((course) => (
 

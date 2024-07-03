@@ -10,6 +10,7 @@ export default function CoursesNavigation() {
       { label: "Assignments", path: "Assignments" },
       { label: "Quizzes", path: "Quizzes" },
       { label: "Grades", path: "Grades" }
+
    ];
 
    const { pathname } = useLocation();

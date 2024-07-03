@@ -16,7 +16,7 @@ export default function Lab4(){
       }
     
     return(
-    <div className="">
+    <div className="container-fluid">
         <ClickEvent />
         <PassingDataOnEvent />
         <PassingFunctions theFunction={sayHello} />
