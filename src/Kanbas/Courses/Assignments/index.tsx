@@ -72,12 +72,12 @@ console.log(assignments)
                 <div className="wd-assignment-details ms-5">
                   <span className="wd-module-type text-danger">Multiple Modules</span> |
                   <span className="wd-start-date">
-                    <b>Not available until</b> {assignment.availableFrom || "N/A"} 
+                    <b> Not available until</b> {assignment.availableFrom || "N/A"} 
                   </span> |
                   <span className="wd-end-date">
-                    <b>Due</b> {assignment.dueDate || "N/A"} 
+                    <b> Due</b> {assignment.dueDate || "N/A"} 
                   </span> |
-                  <span className="wd-points">{assignment.points} pts</span>
+                  <span className="wd-points"> {assignment.points} pts</span>
                 </div>
               </li>
             ))}
