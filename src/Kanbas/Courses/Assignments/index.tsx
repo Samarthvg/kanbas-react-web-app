@@ -4,11 +4,20 @@ import { useParams } from "react-router";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import AssignmentButton from "./AssignmentButton";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAssignment } from "./reducer";
 
 export default function Assignments() {
   const { cid } = useParams();
   const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
+  const dispatch = useDispatch();
+
+  const handleDeleteAssignment = (assignmentId: string) => {
+    const confirmed = window.confirm("Are you sure you want to delete this assignment?");
+    if (confirmed) {
+      dispatch(deleteAssignment(assignmentId));
+    }
+  };
 
   return (
     <div id="wd-assignments">
@@ -56,7 +65,15 @@ export default function Assignments() {
                 >
                   {assignment.title}
                 </Link>
-                <AssignmentControlButtons />
+
+
+               
+                <AssignmentControlButtons 
+                  assignmentId={assignment._id}
+                  onDelete={handleDeleteAssignment}
+                />
+
+                
                 <div className="wd-assignment-details ms-5">
                   <span className="wd-module-type text-danger">Multiple Modules</span> |
                   <span className="wd-start-date">
