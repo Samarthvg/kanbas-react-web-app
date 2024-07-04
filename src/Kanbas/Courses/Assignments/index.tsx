@@ -18,15 +18,15 @@ export default function Assignments() {
       dispatch(deleteAssignment(assignmentId));
     }
   };
-
+console.log(assignments)
   return (
     <div id="wd-assignments">
       <div className="assignment-form align-items-center mt-3">
-        <input 
-          id="wd-search-assignment" 
-          className="d-inline p-2 form-control" 
-          placeholder="Search..." 
-          style={{ maxWidth: "600px" }} 
+        <input
+          id="wd-search-assignment"
+          className="d-inline p-2 form-control"
+          placeholder="Search..."
+          style={{ maxWidth: "600px" }}
         />
         <div className="wd-assignment-btn float-end d-none d-xl-block">
           <button className="wd-add-assignment-group btn btn-lg btn-secondary me-1 rounded-2">
@@ -45,7 +45,7 @@ export default function Assignments() {
           </h3>
           <div className="wd-weightage float-end">
             <span className="wd-weight border-gray p-2 rounded-5 me-2 fs-5">
-              40% of total 
+              40% of total
             </span>
             <AssignmentButton />
           </div>
@@ -53,7 +53,7 @@ export default function Assignments() {
         <ul className="wd-assignment-list list-group list-unstyled rounded-0 border-5 border-start border-success">
           {assignments
             .filter((assignment: any) => assignment.course === cid)
-            .map((assignment : any) => (
+            .map((assignment: any) => (
               <li key={assignment._id} className="wd-assignment-list-item list-group-item p-3 ps-2">
                 <BsGripVertical />
                 <span className="float-left text-success me-2">
@@ -65,22 +65,17 @@ export default function Assignments() {
                 >
                   {assignment.title}
                 </Link>
-
-
-               
-                <AssignmentControlButtons 
+                <AssignmentControlButtons
                   assignmentId={assignment._id}
                   onDelete={handleDeleteAssignment}
                 />
-
-                
                 <div className="wd-assignment-details ms-5">
                   <span className="wd-module-type text-danger">Multiple Modules</span> |
                   <span className="wd-start-date">
-                    <b> Not available until</b> {assignment.available_month} at {assignment.available_time}
+                    <b>Not available until</b> {assignment.availableFrom || "N/A"} 
                   </span> |
                   <span className="wd-end-date">
-                    <b> Due</b> {assignment.dueDate} at {assignment.dueTime}
+                    <b>Due</b> {assignment.dueDate || "N/A"} 
                   </span> |
                   <span className="wd-points">{assignment.points} pts</span>
                 </div>

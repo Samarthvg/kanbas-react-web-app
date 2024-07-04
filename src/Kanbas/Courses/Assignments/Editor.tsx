@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"; // Correct import path
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAssignment, addAssignment } from "./reducer"; // Adjust the path if necessary
+import { updateAssignment, addAssignment } from "./reducer";
 
 export default function AssignmentEditor() {
     const { aid, cid } = useParams();
+    const navigate = useNavigate();
     const assignments = useSelector((state:any) => state.assignmentReducer.assignments);
     const dispatch = useDispatch();
 
     const assignment = assignments ? assignments.find((assignment: any) => assignment._id === aid) : null;
-        console.log(assignment)
+    console.log(assignment);
+
     const [formState, setFormState] = useState({
         title: assignment?.title || "",
         description: assignment?.description || "",
@@ -18,9 +19,11 @@ export default function AssignmentEditor() {
         dueDate: assignment?.dueDate || "",
         availableFrom: assignment?.availableFrom || "",
         availableUntil: assignment?.availableUntil || "",
+        gradeType: assignment?.gradeType || "Percentage",
+        submissionType: assignment?.submissionType || "Online",
     });
 
-    const handleChange = (e:any) => {
+    const handleChange = (e: any) => {
         const { id, value } = e.target;
         setFormState({
             ...formState,
@@ -33,14 +36,22 @@ export default function AssignmentEditor() {
             dispatch(updateAssignment({ ...assignment, ...formState }));
             alert("Saved!");
         } else {
-            dispatch(addAssignment({ ...formState }));
+            const newAssignment = {
+                ...formState,
+                course: cid,
+                _id: new Date().getTime().toString(),
+            };
+            dispatch(addAssignment(newAssignment));
             alert("Added");
         }
+        navigate(`/Kanbas/Courses/${cid}/Assignments`);
     };
 
-    // if (!assignment) {
-    //     return <div>Assignment not found</div>;
-    // }
+    const handleCancel = () => {
+        if (window.confirm("Are you sure?")) {
+            navigate(`/Kanbas/Courses/${cid}/Assignments`);
+        }
+    };
 
     return (
         <div id="wd-assignments-editor">
@@ -83,7 +94,7 @@ export default function AssignmentEditor() {
                                 <select
                                     id="assignment-group"
                                     className="form-select"
-                                    value="ASSIGNMENTS" // Default value
+                                    value="ASSIGNMENTS"
                                     onChange={handleChange}
                                 >
                                     <option value="ASSIGNMENTS">ASSIGNMENTS</option>
@@ -93,13 +104,13 @@ export default function AssignmentEditor() {
                         <p></p>
                         <tr>
                             <td align="right" valign="top">
-                                <label htmlFor="grade_type" className="me-2">Display Grade as</label>
+                                <label htmlFor="gradeType" className="me-2">Display Grade as</label>
                             </td>
                             <td>
                                 <select
-                                    id="grade_type"
+                                    id="gradeType"
                                     className="form-select"
-                                   
+                                    value={formState.gradeType}
                                     onChange={handleChange}
                                 >
                                     <option value="Percentage">Percentage</option>
@@ -110,19 +121,18 @@ export default function AssignmentEditor() {
                         <p></p>
                         <tr>
                             <td align="right" valign="top">
-                                <label htmlFor="submission_type" className="me-2">Submission Type</label>
+                                <label htmlFor="submissionType" className="me-2">Submission Type</label>
                             </td>
                             <td className="border p-3">
                                 <select
-                                    id="submission_type"
+                                    id="submissionType"
                                     className="form-select"
-                                  
+                                    value={formState.submissionType}
                                     onChange={handleChange}
                                 >
                                     <option value="Online">Online</option>
                                     <option value="In-person">In-person</option>
                                 </select>
-                                {/* ... Other inputs for submission type options ... */}
                             </td>
                         </tr>
                         <p></p>
@@ -175,15 +185,14 @@ export default function AssignmentEditor() {
                         </tr>
                         <tr>
                             <td colSpan={2} align="right">
-                                <Link
-                                    to={`/Kanbas/Courses/${cid}/Assignments`}
+                                <button
+                                    type="button"
                                     className="btn btn-secondary me-2"
                                     id="wd-cancel"
-                                    onClick={() => alert("Are you sure?")}
-                                    type="button"
+                                    onClick={handleCancel}
                                 >
                                     Cancel
-                                </Link>
+                                </button>
                                 <button
                                     type="button"
                                     className="btn btn-success"

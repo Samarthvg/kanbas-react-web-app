@@ -3,7 +3,6 @@ import { assignments as initialAssignments } from "../../Database"; // Adjust th
 
 const initialState = {
   assignments: initialAssignments,
- 
 };
 
 const assignmentsSlice = createSlice({
@@ -20,23 +19,27 @@ const assignmentsSlice = createSlice({
         dueDate: assignment.dueDate,
         availableFrom: assignment.availableFrom,
         availableUntil: assignment.availableUntil,
+        gradeType: assignment.gradeType,
+        submissionType: assignment.submissionType,
       };
       state.assignments = [...state.assignments, newAssignment] as any;
     },
+
     updateAssignment: (state, { payload: updatedAssignment }) => {
       state.assignments = state.assignments.map((assignment: any) =>
         assignment._id === updatedAssignment._id ? updatedAssignment : assignment
-      );
+      ) as any;
     },
     deleteAssignment: (state, { payload: assignmentId }) => {
       state.assignments = state.assignments.filter(
-        (assignment: any) => assignment._id !== assignmentId);
+        (assignment: any) => assignment._id !== assignmentId
+      );
     },
   },
 });
 
 export const {
-  addAssignment,  
+  addAssignment,
   updateAssignment,
   deleteAssignment,
 } = assignmentsSlice.actions;
