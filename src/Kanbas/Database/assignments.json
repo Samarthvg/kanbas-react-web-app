@@ -8,7 +8,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A102",
@@ -19,7 +19,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Combustion Analysis",
         "points": 100,
-        "due_date": "2024-05-27"
+        "dueDate": "2024-05-27"
     },
     {
         "_id": "A103",
@@ -30,7 +30,7 @@
         "available_time": "12:00 am",
         "description": "The nuances of Nozzle Design, implementation and enhancement",
         "points": 100,
-        "due_date": "2024-06-10"
+        "dueDate": "2024-06-10"
     },
     {
         "_id": "A201",
@@ -41,7 +41,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A202",
@@ -52,7 +52,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A203",
@@ -63,7 +63,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A301",
@@ -74,7 +74,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A302",
@@ -85,7 +85,7 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     },
     {
         "_id": "A303",
@@ -96,6 +96,6 @@
         "available_time": "12:00 am",
         "description": "Understanding Propulsion",
         "points": 100,
-        "due_date": "2024-05-20"
+        "dueDate": "2024-05-20"
     }
 ]
