@@ -49,6 +49,9 @@ export default function TOC() {
           My GitHub
         </a>
       </li>
+      <li className="nav-item">
+        <a id="wd-node-server" href="https://samarth-kanbas-node-server-app-7be31e17a1a6.herokuapp.com/" className="nav-link">Heroku Server</a>
+      </li>
     </ul>
   );
 }
