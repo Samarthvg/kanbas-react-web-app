@@ -6,7 +6,7 @@ import { updateAssignment, addAssignment } from "./reducer";
 export default function AssignmentEditor() {
     const { aid, cid } = useParams();
     const navigate = useNavigate();
-    const assignments = useSelector((state:any) => state.assignmentReducer.assignments);
+    const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
     const dispatch = useDispatch();
 
     const assignment = assignments ? assignments.find((assignment: any) => assignment._id === aid) : null;

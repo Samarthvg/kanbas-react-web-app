@@ -18,7 +18,12 @@ export default function Assignments() {
       dispatch(deleteAssignment(assignmentId));
     }
   };
-console.log(assignments)
+
+  const totalPoints = assignments
+  .filter((assignment: any) => assignment.course === cid)
+  .reduce((sum: any, assignment: any) => sum + assignment.points, 0);
+
+  const percentage = (totalPoints / 1000) * 100;
   return (
     <div id="wd-assignments">
       <div className="assignment-form align-items-center mt-3">
@@ -44,8 +49,8 @@ console.log(assignments)
             <BsGripVertical /> ASSIGNMENTS
           </h3>
           <div className="wd-weightage float-end">
-            <span className="wd-weight border-gray p-2 rounded-5 me-2 fs-5">
-              40% of total
+            <span className="wd-weight border-gray p-2 px-3 rounded-5 me-2 fs-5">
+              {percentage}% of Total
             </span>
             <AssignmentButton />
           </div>
