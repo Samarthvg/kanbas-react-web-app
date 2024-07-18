@@ -5,25 +5,43 @@ import AssignmentControlButtons from "./AssignmentControlButtons";
 import AssignmentButton from "./AssignmentButton";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAssignment } from "./reducer";
+import { deleteAssignment, setAssignments } from "./reducer";
+import { useEffect } from "react";
+import * as client from "./client";
 
 export default function Assignments() {
   const { cid } = useParams();
   const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
   const dispatch = useDispatch();
 
+  const removeAssignment = async(assignmentId: string) =>{
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
+  const fetchAssignments = async () =>{
+    const assignments = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  }
+
+  useEffect(()=>{
+    fetchAssignments();
+    // eslint-disable-next-line
+  },[]);
+
   const handleDeleteAssignment = (assignmentId: string) => {
     const confirmed = window.confirm("Are you sure you want to delete this assignment?");
     if (confirmed) {
-      dispatch(deleteAssignment(assignmentId));
+      removeAssignment(assignmentId);
     }
   };
 
-  const totalPoints = assignments
-  .filter((assignment: any) => assignment.course === cid)
-  .reduce((sum: any, assignment: any) => sum + assignment.points, 0);
+  // const totalPoints = assignments
+  // .filter((assignment: any) => assignment.course === cid)
+  // .reduce((sum: any, assignment: any) => sum + assignment.points, 0);
 
-  const percentage = (totalPoints / 1000) * 100;
+  // const percentage = (totalPoints / 1000) * 100;
+  const percentage = 40;
   return (
     <div id="wd-assignments">
       <div className="assignment-form align-items-center mt-3">
