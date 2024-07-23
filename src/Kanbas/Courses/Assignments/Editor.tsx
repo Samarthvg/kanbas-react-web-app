@@ -2,12 +2,25 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAssignment, addAssignment } from "./reducer";
+import * as client from "./client";
 
 export default function AssignmentEditor() {
     const { aid, cid } = useParams();
     const navigate = useNavigate();
-    const assignments = useSelector((state:any) => state.assignmentReducer.assignments);
+    const assignments = useSelector((state: any) => state.assignmentReducer.assignments);
     const dispatch = useDispatch();
+
+    const saveAssignment = async (assignment: any) => {
+        await client.updateAssignment(assignment);
+        dispatch(updateAssignment(assignment));
+      };
+
+      const createAssignment = async (assignment: any) => {
+        const newAssignment = await client.createAssignment(cid as string, assignment);
+        dispatch(addAssignment(newAssignment));
+      };
+    
+    
 
     const assignment = assignments ? assignments.find((assignment: any) => assignment._id === aid) : null;
     console.log(assignment);
@@ -33,7 +46,8 @@ export default function AssignmentEditor() {
 
     const handleSave = () => {
         if (assignment) {
-            dispatch(updateAssignment({ ...assignment, ...formState }));
+            const updatedAssignment = { ...assignment, ...formState };
+            saveAssignment(updatedAssignment);
             alert("Saved!");
         } else {
             const newAssignment = {
@@ -41,7 +55,7 @@ export default function AssignmentEditor() {
                 course: cid,
                 _id: new Date().getTime().toString(),
             };
-            dispatch(addAssignment(newAssignment));
+           createAssignment(newAssignment)
             alert("Added");
         }
         navigate(`/Kanbas/Courses/${cid}/Assignments`);

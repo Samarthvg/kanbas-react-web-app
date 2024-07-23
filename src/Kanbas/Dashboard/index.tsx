@@ -46,7 +46,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                       {course.description}
                     </p>
 
-                    <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">Go</Link>
+                    {/* <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">Go</Link> */}
 
                     <button onClick={(event) => {
                       event.preventDefault();
