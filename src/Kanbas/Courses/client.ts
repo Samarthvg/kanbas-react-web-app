@@ -18,6 +18,8 @@ export const createCourse = async (course: any) => {
     const response = await axios.put(`${COURSES_API}/${course._id}`, course);
     return response.data;
   };
+
+  
   
   
   

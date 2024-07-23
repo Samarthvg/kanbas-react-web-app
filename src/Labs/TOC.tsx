@@ -50,7 +50,7 @@ export default function TOC() {
         </a>
       </li>
       <li className="nav-item">
-        <a id="wd-node-server" href="https://samarth-kanbas-node-server-app-7be31e17a1a6.herokuapp.com/" className="nav-link">Heroku Server</a>
+        <a id="wd-node-server" href="https://kanbas-node-server-app-gpk8.onrender.com/" className="nav-link">Render Server</a>
       </li>
     </ul>
   );
