@@ -1,3 +1,4 @@
+
 import "./index.css";
 import { Link, useParams, useLocation } from "react-router-dom";
 export default function CoursesNavigation() {
@@ -9,7 +10,8 @@ export default function CoursesNavigation() {
       { label: "Zoom", path: "Zoom" },
       { label: "Assignments", path: "Assignments" },
       { label: "Quizzes", path: "Quizzes" },
-      { label: "Grades", path: "Grades" }
+      { label: "Grades", path: "Grades" },
+      { label: "People", path: "People"}
 
    ];
 
