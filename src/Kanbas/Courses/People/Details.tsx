@@ -46,6 +46,7 @@ export default function PeopleDetails({ fetchUsers }:
     };
     useEffect(() => {
         if (uid) fetchUser();
+        // eslint-disable-next-line
     }, [uid]);
     if (!uid) return null;
 

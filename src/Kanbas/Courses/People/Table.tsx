@@ -34,21 +34,23 @@ export default function PeopleTable() {
       };
     
 
-    const [name, setName] = useState("");
-    const filterUsersByName = async (name: string) => {
+      const [, setName] = useState("");
+      const filterUsersByName = async (name : string) => {
         setName(name);
         if (name) {
-            const users = await client.findUsersByPartialName(name);
-            setUsers(users);
+          const users = await client.findUsersByPartialName(name);
+          setUsers(users);
         } else {
-            fetchUsers();
+          fetchUsers();
         }
-    };
+      };
+    
 
     const { cid } = useParams();
 
     useEffect(() => {
         fetchUsers();
+        // eslint-disable-next-line
     }, []);
     return (
         <div id="wd-people-table">
@@ -60,7 +62,8 @@ export default function PeopleTable() {
             <PeopleDetails  fetchUsers={fetchUsers}/>
 
             <input onChange={(e) => filterUsersByName(e.target.value)} placeholder="Search people"
-                className="form-control float-start w-25 me-2 wd-filter-by-name" />
+             className="form-control float-start w-25 me-2 wd-filter-by-name" />
+
 
             <select value={role} onChange={(e) => filterUsersByRole(e.target.value)}
                 className="form-select float-start w-25 wd-select-role" >
