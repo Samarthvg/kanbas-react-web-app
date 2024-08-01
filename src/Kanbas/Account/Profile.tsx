@@ -1,6 +1,9 @@
 import * as client from "./client";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "./reducer";
+
 export default function Profile() {
     const [profile, setProfile] = useState<any>({});
     const navigate = useNavigate();
@@ -12,13 +15,17 @@ export default function Profile() {
             navigate("/Kanbas/Account/Signin");
         }
     };
+    const dispatch = useDispatch();
 
     const signout = async () => {
         await client.signout();
+        dispatch(setCurrentUser(null));
         navigate("/Kanbas/Account/Signin");
     };
 
-    useEffect(() => { fetchProfile(); }, []);
+    useEffect(() => { fetchProfile();
+        // eslint-disable-next-line
+     }, []);
     return (
         <div className="wd-profile-screen">
             <h1>Profile</h1>
