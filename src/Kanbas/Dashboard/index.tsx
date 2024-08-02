@@ -30,7 +30,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
           {courses.map((course) => (
 
             <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-              <Link to={`/Kanbas/Courses/${course._id}/Home`} className="text-decoration-none" >
+              <Link to={`/Kanbas/Courses/${course.number}/Home`} className="text-decoration-none" >
 
                 <div className="card rounded-3 mb-5 overflow-hidden">
                   <img className="wd-card-img object-fit-cover" src="/images/reactjs.jpg" alt="img not found" height="{160}" />
