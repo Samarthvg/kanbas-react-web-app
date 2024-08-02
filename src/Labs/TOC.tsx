@@ -3,7 +3,8 @@ import { useLocation } from "react-router";
 export default function TOC() {
   const { pathname } = useLocation();
   return (
-    <ul className="nav">
+    <div className="container-fluid">
+ <ul className="nav">
       <li className="nav-item">
         <a id="wd-a" href="#/Labs" className="nav-link">
           Labs 
@@ -45,13 +46,27 @@ export default function TOC() {
         </a>
       </li>
       <li className="nav-item">
+        <a id="wd-node-server" href="https://kanbas-node-server-app-a6-19tr.onrender.com" className="nav-link">Render Server</a>
+      </li>
+    </ul>
+    <br />
+    <h4>Github Repos</h4>
+    <ul className="nav">
+    <li className="nav-item">
         <a id="wd-k" href="https://github.com/Samarthvg" className="nav-link">
           My GitHub
         </a>
       </li>
       <li className="nav-item">
-        <a id="wd-node-server" href="https://kanbas-node-server-app-gpk8.onrender.com/" className="nav-link">Render Server</a>
+      <a id="wd-a" href="https://github.com/Samarthvg/kanbas-node-server-app/tree/A6" className="nav-link">
+          node-server-app 
+        </a> 
+      </li>
+      <li className="nav-item">
+        <a href="https://github.com/Samarthvg/kanbas-react-web-app/tree/A6" className="nav-link">react-web-app</a>
       </li>
     </ul>
+    </div>
+   
   );
 }
